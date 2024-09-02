@@ -18,17 +18,28 @@ from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 from django.urls import path, include
 from rest_framework import permissions
+from drf_yasg.generators import OpenAPISchemaGenerator
+
+class CustomSchemaGenerator(OpenAPISchemaGenerator):
+    def get_schema(self, request=None, public=False):
+        schema = super().get_schema(request, public)
+        if schema:
+            # Define both HTTP and HTTPS schemes
+            schema.schemes = ["http", "https"]
+        return schema
 
 schema_view = get_schema_view(
-   openapi.Info(
-      title="Simptotel API",
-      default_version='v1',
-      description="API documentation",
-      contact=openapi.Contact(email="m.srinivas365@gmail.com"),
-      license=openapi.License(name="BSD License"),
-   ),
-   public=True,
-   permission_classes=(permissions.AllowAny,),
+    openapi.Info(
+        title="Simptotel API",
+        default_version='v1',
+        description="API documentation",
+        contact=openapi.Contact(email="m.srinivas365@gmail.com"),
+        license=openapi.License(name="BSD License"),
+    ),
+    public=True,
+    permission_classes=(permissions.AllowAny,),
+    # Enable both HTTP and HTTPS schemes
+    generator_class=CustomSchemaGenerator,
 )
 
 urlpatterns = [

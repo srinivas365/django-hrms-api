@@ -26,6 +26,9 @@ RUN pip install -r requirements.txt
 # Copy the rest of the application code into the container
 COPY . /app/
 
+RUN python manage.py makemigrations
+RUN python manage.py migrate
+
 # Expose the port that Django will run on
 EXPOSE 8000
 
