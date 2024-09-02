@@ -1,0 +1,79 @@
+# Django specific files
+*.log
+*.pot
+*.pyc
+__pycache__/
+db.sqlite3
+*.sqlite3
+
+# Django migrations
+**/migrations/*.py
+**/migrations/*.pyc
+
+# If you're using PostgreSQL, MySQL, or other databases, ignore their specific files
+*.pgsql
+*.mysql
+
+# If you're using environment variables in a .env file
+.env
+
+# If you're using virtual environments
+venv/
+env/
+ENV/
+.venv/
+
+# If you're using local settings
+local_settings.py
+
+# Ignore static and media files
+/static/
+/media/
+
+# PyCharm specific
+.idea/
+
+# VSCode specific
+.vscode/
+
+# macOS specific
+.DS_Store
+
+# Node.js specific (if using npm/yarn for frontend)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Ignore coverage files
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+
+# Ignore Sentry DSN files
+.sentryclirc
+
+# Ignore any IDE-specific files
+*.swp
+*~
+.project
+.idea
+*.sublime-workspace
+*.sublime-project
+
+# Ignore generated files
+*.pot
+*.mo
+*.log
+*.rtf
+*.pdf
+
+# Ignore pipenv files
+Pipfile.lock

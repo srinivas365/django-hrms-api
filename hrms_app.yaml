@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hrms_app
+  labels:
+    app: hrms_app
+spec:
+  replicas: 10
+  strategy:
+    rollingUpdate:
+      maxSurge: 3
+      maxUnavailable: 3
+  selector:
+    matchLabels:
+      app: hrms_app
+  template:
+    metadata:
+      labels:
+        app: hrms_app
+    spec:
+      containers:
+      - name: hrms_app
+        image: srinivas@365/hrms_app
+        imagePullPolicy: Always
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8000
+        livenessProbe:
+            httpGet:
+              path: /api/v1/alive
+              port: 8000
+            initialDelaySeconds: 10
+            periodSeconds: 10
