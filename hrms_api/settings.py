@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-frzxde%c-(^&dfos7$w5i39gb&ao=q4mco)j9$thg2$^bz9p5o"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['django-hrms-api.onrender.com', '127.0.0.1']
 
